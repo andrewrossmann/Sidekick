@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sidekick — Business Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #141821;
+      --ink-muted: #3d4451;
+      --paper: #f6f4f0;
+      --card: #ffffff;
+      --line: #e2ddd4;
+      --accent: #0f766e;
+      --accent-soft: #ccfbf1;
+      --wordmark: #0c1118;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Outfit", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+      font-size: 11pt;
+      margin: 0;
+    }
+    .sheet {
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.85in 0.9in 1in;
+      background: var(--card);
+      min-height: 100vh;
+      box-shadow: 0 0 0 1px var(--line);
+    }
+    header.brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+    .wordmark {
+      font-weight: 700;
+      font-size: 1.75rem;
+      letter-spacing: -0.02em;
+      color: var(--wordmark);
+    }
+    .wordmark span { color: var(--accent); }
+    .doc-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink-muted);
+    }
+    h1 {
+      font-size: 1.65rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 2rem 0 0.75rem;
+      padding-top: 0.25rem;
+      border-top: 1px solid var(--line);
+    }
+    h2:first-of-type { border-top: none; margin-top: 0.5rem; padding-top: 0; }
+    h3 { font-size: 0.95rem; font-weight: 600; margin: 1.25rem 0 0.4rem; color: var(--ink); }
+    p { margin: 0 0 0.85rem; color: var(--ink-muted); }
+    ul { margin: 0 0 1rem; padding-left: 1.2rem; color: var(--ink-muted); }
+    li { margin-bottom: 0.35rem; }
+    .tagline {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      border-left: 4px solid var(--accent);
+      padding: 0.5rem 0 0.5rem 1rem;
+      margin: 0 0 1.5rem;
+      background: var(--accent-soft);
+    }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0 1.25rem; }
+    .pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.6rem;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 4px;
+    }
+    table.stats {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 0.5rem 0 1rem;
+    }
+    table.stats th, table.stats td {
+      text-align: left;
+      padding: 0.5rem 0.65rem;
+      border: 1px solid var(--line);
+    }
+    table.stats th { background: #f0ede7; color: var(--ink); font-weight: 600; }
+    .footnote {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+    .site-nav {
+      font-size: 0.8rem;
+      margin: 0 auto 1rem;
+      max-width: 8.5in;
+      padding: 0 0.9rem;
+    }
+    .site-nav a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .site-nav a:hover { text-decoration: underline; }
+    @media print {
+      body { background: #fff; }
+      .sheet { box-shadow: none; max-width: 100%; }
+      h2 { page-break-after: avoid; }
+      .site-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav"><a href="../">← All documents</a></nav>
+  <div class="sheet">
+    <header class="brand">
+      <div>
+        <div class="wordmark">Side<span>kick</span></div>
+        <div class="doc-label" style="margin-top:0.25rem">Business Plan</div>
+      </div>
+      <div class="doc-label">Confidential</div>
+    </header>
+
+    <h1>Mobile support for the space between a cane and a rollator</h1>
+    <p class="tagline">When a cane is not enough and a rollator is too much — a one-handed mobile support bar that is stable, foldable, portable, and carry-ready.</p>
+    <div class="pill-row">
+      <span class="pill">Patents pending</span>
+      <span class="pill">Under development</span>
+      <span class="pill">Consumer mobility</span>
+    </div>
+
+    <h2>1. Executive overview</h2>
+    <p>Sidekick is a lightweight, maneuverable <strong>mobile support bar (MSB)</strong> designed for people who need more stability and confidence than a cane can provide, without the width, weight, or stigma of a traditional walker or four-wheeled rollator. The product is intended for at-home, community, and travel use, with an emphasis on narrow spaces, curbs, thresholds, and day-to-day activities where conventional mobility aids are awkward or unsafe.</p>
+    <p>The business model prioritizes a strong consumer retail story (MSRP in an accessible range), optional accessories and future variants (including a <strong>Step and Carry</strong> concept: a drop-down section that can serve as a step or a contained carry tray), and long-term <strong>licensing or strategic sale</strong> to an established mobility or durable medical equipment leader — consistent with the team’s track record in product development and IP.</p>
+
+    <h2>2. Problem</h2>
+    <h3>2.1 User pain</h3>
+    <ul>
+      <li><strong>Walkers</strong> are wide and cumbersome; they often push the user’s weight ahead of the body’s center of gravity.</li>
+      <li><strong>Rollators</strong> are heavy, hard to maneuver in tight places, and can create fear of a “runaway” device on slopes or curb ramps.</li>
+      <li><strong>Canes</strong> are portable but offer limited support for balance-intensive tasks and uneven terrain (grass, gravel, inclines).</li>
+    </ul>
+    <h3>2.2 Life is not flat</h3>
+    <p>Curbs, door thresholds, inclines, narrow aisles, and stairs are part of daily life. Many users need support that moves with them, stops when they need it, and projects capability rather than frailty.</p>
+
+    <h2>3. Solution: Sidekick</h2>
+    <p>Sidekick is positioned as a <strong>one-handed mobility device and mobile support bar</strong> — a “step up from a cane” with roll control, braking, and a compact footprint. Communicated benefits include:</p>
+    <ul>
+      <li><strong>Stability and control</strong> — A secure platform; resistance to rolling away; hands-free or low-effort brake concepts (patent-pending areas).</li>
+      <li><strong>Light weight</strong> — On the order of half the weight of a typical folding walker, and a fraction of many rollators, supporting lift-over-obstacles and travel.</li>
+      <li><strong>Compact geometry</strong> — Small footprint and folding behavior suitable for trunks, transit, and overhead stowage where appropriate.</li>
+      <li><strong>Maneuverability</strong> — Suited to narrow spaces (e.g. theaters, restrooms, home hallways) with design attention to turning, thresholds, and posture-friendly use.</li>
+      <li><strong>Emotional design</strong> — Reducing fear of a runaway rollator or a tipping cane; supporting an “abled” self-image.</li>
+    </ul>
+
+    <h2>4. Product line and accessories</h2>
+    <p>Planned and conceptual add-ons (from existing planning materials) include a cupholder, tray, hooks for carts and bags, and reach tools (e.g. magnetic / utility). A <strong>Step and Carry</strong> module describes a dual-purpose drop section — step in one orientation, carry tray in the other — expanding utility in the home. These items support <strong>recurring revenue</strong> and retail merchandising (add-on, online).</p>
+
+    <h2>5. Market and opportunity</h2>
+    <p>Global demand for personal mobility devices continues to grow with aging populations and longer active lives. Sidekick competes in the <strong>adjacent</strong> space between canes and rollators: users who are not fully served by either category. Distribution paths include e-commerce, specialty retail, catalog, and — following proof and regulatory clarity — channels that serve clinical or reimbursed buyers where applicable.</p>
+    <p>Initial go-to-market planning includes <strong>online retail</strong> and <strong>add-on to complementary product lines</strong> of established brands (as reflected in current pitch materials), plus education-led campaigns (video, community, and caregiver channels).</p>
+
+    <h2>6. Business model and economics (illustrative)</h2>
+    <p>Figures below are <strong>planning ranges</strong> from internal materials; final COGS and MSRP will depend on BOM, volume, compliance path, and channel.</p>
+    <table class="stats">
+      <tr><th>Item</th><th>Indicative range (planning)</th></tr>
+      <tr><td>Estimated cost of goods (COGS)</td><td>~$20 at target volume (subject to BOM lock)</td></tr>
+      <tr><td>MSRP (consumer)</td><td>$79.99 – $129.99</td></tr>
+      <tr><td>Strategic path</td><td>Build brand &amp; sell-through → license or divest to industry leader</td></tr>
+    </table>
+
+    <h2>7. Go-to-market and Kickstarter readiness</h2>
+    <p>Foundational questions for a rewards or pre-order campaign (Kickstarter or similar) include: platform fees, legal structure, donation vs. pre-order, estimated retail price, color/size/SKU plan, shipping configuration (folded vs. kit), returns, and support documentation. A parallel <strong>bill of materials (BOM)</strong>, <strong>instructional materials</strong>, and <strong>test plan</strong> are required before scale manufacturing. Marketing, insurance, and packaging are budgeted as discrete workstreams.</p>
+
+    <h2>8. Operations and development</h2>
+    <ul>
+      <li><strong>Engineering and testing</strong> — In-house work balanced with contract design, testing, and manufacturing partners.</li>
+      <li><strong>Regulatory and certifications</strong> — Industry advisors (e.g. durable medical equipment experience) inform the compliance roadmap.</li>
+      <li><strong>IP</strong> — Patent-pending features around roll control, braking, folding, and related mechanics.</li>
+    </ul>
+
+    <h2>9. Team (Sidekick squad)</h2>
+    <p><strong>Deborah Harter Williams</strong> — MBA, writer, early development and trial participant.</p>
+    <p><strong>Lauren Johnson-Williams</strong> — Maker and project manager; manufacturing exposure (including international); caregiver experience for people with developmental disabilities and mobility needs.</p>
+    <p><strong>Susie Nation</strong> — Retired hospice nurse; strong familiarity with mobility, stability, and medical terminology; connections across care settings.</p>
+    <p><strong>Bea Davis</strong> — Photography, film, and presentation design.</p>
+    <p><strong>Joyce Logan</strong> — Presenter; hip replacement experience; community ties (including seniors and medical support); early investor in Indeelift.</p>
+    <p><strong>Steve Powell</strong> — President, Indeelift; resource for certification and industry pathways.</p>
+    <p><strong>Rick Mazursky</strong> — Decades in retail, consumer, and industrial products; product design, development, and manufacturing; prior leadership (e.g. VTech, Cabbage Patch launch); 20+ U.S. patents; board and advisory experience; Parkinson’s; co-inventor motivation — building what users like him need.</p>
+    <p><strong>Mark Williams &amp; Rick Mazursky (M&amp;M Partners)</strong> — Deep catalog of commercialized products and 50+ combined utility patents; focus on solutions for MS, Parkinson’s, scoliosis, and related conditions. Contact for partnership: <a href="mailto:rmazursky@gmail.com">rmazursky@gmail.com</a>.</p>
+
+    <h2>10. Risks and mitigations (summary)</h2>
+    <ul>
+      <li><strong>Regulatory / claims</strong> — Clear labeling, design history, and advisor-led classification strategy.</li>
+      <li><strong>Manufacturing quality</strong> — Staged pilot runs, test fixtures, and supplier qualification.</li>
+      <li><strong>Channel and cash</strong> — Pre-order discipline, working-capital planning, and milestone-based spend.</li>
+    </ul>
+
+    <h2>11. Financial needs (frame)</h2>
+    <p>Use of funds typically covers prototypes, regulatory prep, initial inventory, marketing, insurance, and working capital. A detailed budget should tie each line to milestones (prototype sign-off, campaign launch, first container, retail placement).</p>
+
+    <h2>12. Contact</h2>
+    <p><strong>Product updates and inquiries:</strong> <a href="mailto:sidekick@toy-knowlogy.com">sidekick@toy-knowlogy.com</a><br />
+    <strong>Partnership (M&amp;M Partners):</strong> <a href="mailto:rmazursky@gmail.com">rmazursky@gmail.com</a></p>
+
+    <p class="footnote">This business plan is compiled from materials dated through April 2026 (Sidekick Next, Sidekick Squad, Movability, Drive presentation, Step and Carry, and related notes). Financial figures are non-binding planning estimates until formally validated. Sidekick and related names may appear alongside earlier working titles (e.g. “Freedom Walker,” “Mobile Support Bar”) in legacy documents — this plan uses the Sidekick brand consistently.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sidekick — mobile support bar. Business plan, deck, and executive summary." />
+  <title>Sidekick — Documents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink: #0c1118; --muted: #475569; --accent: #0d9488; --paper: #f6f4f0; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Outfit", system-ui, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: linear-gradient(180deg, #e8f5f3 0%, var(--paper) 50%, #fff 100%);
+    }
+    .wrap { max-width: 36rem; margin: 0 auto; padding: clamp(2rem, 6vw, 4rem) 1.5rem 3rem; }
+    h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 700; letter-spacing: -0.03em; margin: 0 0 0.35rem; }
+    .sub { color: var(--muted); font-size: 1.05rem; margin: 0 0 2rem; line-height: 1.5; }
+    .wordmark { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #64748b; margin-bottom: 1.5rem; }
+    .wordmark span { color: var(--accent); }
+    .list { display: flex; flex-direction: column; gap: 0.75rem; }
+    a.card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      border: 1px solid #e2ddd4;
+      border-radius: 12px;
+      padding: 1.2rem 1.35rem;
+      box-shadow: 0 2px 12px rgba(20, 24, 33, 0.06);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    a.card:hover { box-shadow: 0 6px 24px rgba(20, 24, 33, 0.1); border-color: var(--accent); }
+    a.card h2 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.35rem; }
+    a.card p { margin: 0; font-size: 0.92rem; color: var(--muted); }
+    a.card .go { font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-top: 0.6rem; }
+    footer { margin-top: 2.5rem; font-size: 0.8rem; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="wordmark">Side<span>kick</span></p>
+    <h1>Documents</h1>
+    <p class="sub">Read in any browser. No install required.</p>
+    <div class="list">
+      <a class="card" href="executive-summary/">
+        <h2>Executive summary</h2>
+        <p>Short overview: opportunity, product, model, team, and status.</p>
+        <div class="go">Open →</div>
+      </a>
+      <a class="card" href="deck/">
+        <h2>Deck</h2>
+        <p>Scroll-through slides. Use arrow keys, space, or the scrollbar.</p>
+        <div class="go">Open →</div>
+      </a>
+      <a class="card" href="business-plan/">
+        <h2>Business plan</h2>
+        <p>Full plan: market, operations, team, and financial framing.</p>
+        <div class="go">Open →</div>
+      </a>
+    </div>
+    <footer>Patents pending · Confidential for discussion</footer>
+  </div>
+</body>
+</html>

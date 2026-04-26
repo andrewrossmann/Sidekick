@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sidekick — Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0c1118;
+      --muted: #475569;
+      --accent: #0d9488;
+      --accent-dark: #0f766e;
+      --slide-bg: #f8f6f1;
+      --slide-ink: #f1f5f9;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: "Outfit", system-ui, sans-serif;
+      background: #0a0c10;
+      color: var(--ink);
+      overflow: hidden;
+    }
+    .deck {
+      height: 100vh;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+    .slide {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4rem);
+      position: relative;
+    }
+    .slide:nth-child(odd) { background: var(--slide-bg); }
+    .slide:nth-child(even) {
+      background: linear-gradient(135deg, #0f172a 0%, #134e4a 50%, #0f766e 100%);
+      color: var(--slide-ink);
+    }
+    .slide:nth-child(even) h2, .slide:nth-child(even) h3, .slide:nth-child(even) .big { color: #fff; }
+    .slide:nth-child(even) p, .slide:nth-child(even) li { color: rgba(241, 245, 249, 0.88); }
+    .brand-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+    }
+    .slide:nth-child(odd) .brand-bar { color: #64748b; }
+    .slide:nth-child(even) .brand-bar { color: rgba(255,255,255,0.55); }
+    .wordmark { font-size: 1.1rem; font-weight: 700; text-transform: none; letter-spacing: -0.02em; }
+    .wordmark span { color: var(--accent); }
+    .slide:nth-child(even) .wordmark { color: #fff; }
+    .slide:nth-child(even) .wordmark span { color: #5eead4; }
+    .content { max-width: 38rem; margin: 0 auto; width: 100%; padding-top: 1.5rem; }
+    .content.wide { max-width: 48rem; }
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin: 0 0 0.5rem;
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 600;
+      margin: 0 0 1rem;
+      letter-spacing: -0.02em;
+    }
+    h3 { font-size: 1rem; font-weight: 600; margin: 1.25rem 0 0.5rem; opacity: 0.9; }
+    p { font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.55; margin: 0 0 1rem; color: var(--muted); }
+    .slide:nth-child(even) p { color: rgba(241, 245, 249, 0.85); }
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.35rem 0.6rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .slide:nth-child(even) .tag { background: rgba(255,255,255,0.2); color: #ecfdf5; }
+    .big { font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 500; line-height: 1.4; }
+    ul { font-size: 1.02rem; line-height: 1.55; padding-left: 1.1rem; color: var(--muted); margin: 0.5rem 0 0; }
+    .slide:nth-child(even) ul { color: rgba(241, 245, 249, 0.88); }
+    li { margin-bottom: 0.45rem; }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 640px) { .row { grid-template-columns: 1fr; } }
+    .card-mini {
+      background: rgba(255,255,255,0.55);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(15, 118, 110, 0.15);
+    }
+    .slide:nth-child(even) .card-mini {
+      background: rgba(0,0,0,0.2);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .card-mini strong { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-dark); margin-bottom: 0.35rem; }
+    .slide:nth-child(even) .card-mini strong { color: #99f6e4; }
+    .card-mini p { font-size: 0.95rem; margin: 0; }
+    .split-stat { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem; }
+    .stat { }
+    .stat .num { font-size: 1.75rem; font-weight: 700; color: var(--accent-dark); }
+    .slide:nth-child(even) .stat .num { color: #5eead4; }
+    .stat .lbl { font-size: 0.8rem; color: #64748b; }
+    .slide:nth-child(even) .stat .lbl { color: rgba(255,255,255,0.65); }
+    nav.hint {
+      position: fixed;
+      bottom: 0.75rem;
+      right: 1rem;
+      z-index: 10;
+      font-size: 0.7rem;
+      color: #94a3b8;
+      background: rgba(15, 23, 42, 0.85);
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
+    }
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 20;
+      padding: 0.65rem 1rem;
+      font-size: 0.8rem;
+      background: rgba(248, 246, 241, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(15, 118, 110, 0.12);
+    }
+    .site-nav a { color: var(--accent-dark); font-weight: 600; text-decoration: none; }
+    .site-nav a:hover { text-decoration: underline; }
+    .deck { padding-top: 2.5rem; }
+  </style>
+</head>
+<body>
+  <nav class="site-nav"><a href="../">← All documents</a></nav>
+  <nav class="hint" id="navHint">Scroll or ↑ ↓ &middot; Print for PDF</nav>
+  <div class="deck" id="deck" tabindex="0">
+    <section class="slide">
+      <div class="brand-bar">
+        <span class="wordmark">Side<span>kick</span></span>
+        <span>Patents pending</span>
+      </div>
+      <div class="content">
+        <span class="tag">Mobile support bar</span>
+        <h1>Go where you want.<br />Do what you want.</h1>
+        <p class="big" style="color:var(--ink)">Stability, mobility, portability — confidence, control, independence.</p>
+        <p>When a cane is not enough and a rollator is too much: a <strong>one-handed</strong> device designed by people who understand walkers — and want something better.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="brand-bar">
+        <span class="wordmark">Side<span>kick</span></span>
+        <span>Problem</span>
+      </div>
+      <div class="content wide">
+        <h2>Life is not flat</h2>
+        <p>Curbs, thresholds, and inclines meet devices that are often too wide, too heavy, or too unstable for real-world confidence.</p>
+        <div class="row">
+          <div class="card-mini">
+            <strong>Walkers &amp; rollators</strong>
+            <p>Wide, cumbersome, or prone to runaway motion on slopes and ramps. Heavy to lift and awkward in tight places.</p>
+          </div>
+          <div class="card-mini">
+            <strong>Canes</strong>
+            <p>Portable, but limited support on uneven ground and for tasks that need both balance and use of the body.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="brand-bar">
+        <span class="wordmark">Side<span>kick</span></span>
+        <span>Solution</span>
+      </div>
+      <div class="content">
+        <h2>Sidekick: mobile support bar</h2>
+        <p class="big" style="color:var(--ink)">A portable grab bar, walking aid, and carrier — a step up from a cane.</p>
+        <ul>
+          <li>Roll control / resistance — so support stays with you, not away from you</li>
+          <li>Braking approach designed for one-handed, confident use</li>
+          <li>Light and foldable for car, bus, and travel</li>
+          <li>Posture-friendly, substantial hand hold; use beside or in front of the body</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="brand-bar">
+        <span class="wordmark">Side<span>kick</span></span>
+        <span>Emotional &amp; social</span>
+      </div>
+      <div class="content">
+        <h2>Look capable, feel secure</h2>
+        <p>Reduce fear of a runaway rollator or a falling cane. Project agency and poise in restaurants, theaters, family gatherings, and travel — <strong>not</strong> frailty.</p>
+        <h3>Designed by users</h3>
+        <p>Inventors and partners living with MS, Parkinson’s, and related conditions — building what they would actually use.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="brand-bar">
+        <span class="wordmark">Side<span>kick</span></span>
+        <span>Everywhere</span>
+      </div>
+      <div class="content wide">
+        <h2>At home, at work, at play</h2>
+        <p>With family and friends — cooking, cleaning, gardening, projects — and out in the world: shopping, places of worship, sports, airports.</p>
+        <ul>
+          <li>Narrow aisles, restrooms, and seating rows</li>
+          <li>Stow on a cart; carry bags; hands available when you need them</li>
+          <li>Get up from chairs with a stable, wide grip</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="brand-bar">
+        <span class="wordmark">Side<span>kick</span></span>
+        <span>Line &amp; channel</span>
+      </div>
+      <div class="content">
+        <h2>Product line &amp; opportunity</h2>
+        <p><strong>Accessories:</strong> cupholder, tray, hooks for cart and bags, reach tools. <strong>Step and Carry:</strong> a dual-purpose add-on — step one way, carry tray the other.</p>
+        <p><strong>Channels:</strong> online retail, add-on to complementary product lines, and long-term <strong>licensing or sale to an industry leader</strong> after de-risking.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="brand-bar">
+        <span class="wordmark">Side<span>kick</span></span>
+        <span>Economics</span>
+      </div>
+      <div class="content">
+        <h2>Illustrative unit economics</h2>
+        <p>Planning numbers from current materials (subject to BOM and volume):</p>
+        <div class="split-stat">
+          <div class="stat">
+            <div class="num">~$20</div>
+            <div class="lbl">Indicative COGS</div>
+          </div>
+          <div class="stat">
+            <div class="num">$80–$130</div>
+            <div class="lbl">MSRP range</div>
+          </div>
+        </div>
+        <h3>Goal</h3>
+        <p>Validate demand, lock manufacturing, and position for scale or partnership.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="brand-bar">
+        <span class="wordmark">Side<span>kick</span></span>
+        <span>Team</span>
+      </div>
+      <div class="content wide">
+        <h2>Sidekick squad</h2>
+        <p>Product, care, community, and media — plus deep industry operators: <strong>M&amp;M Partners</strong> (Mark Williams &amp; Rick Mazursky) with 50+ combined utility patents and hundreds of product launches. Advisors including <strong>Steve Powell (Indeelift)</strong> on certification paths.</p>
+        <p style="margin-top:1rem; font-size:0.95rem">Core contributors: Deborah Harter Williams, Lauren Johnson-Williams, Susie Nation, Bea Davis, Joyce Logan — and an extended network in manufacturing and healthcare.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="brand-bar">
+        <span class="wordmark">Side<span>kick</span></span>
+        <span>Next &amp; contact</span>
+      </div>
+      <div class="content">
+        <h2>Status &amp; how to engage</h2>
+        <p>Under development; <strong>patents pending</strong>. Next: BOM, testing, documentation, and retail / campaign readiness.</p>
+        <h3>Contact</h3>
+        <p><strong>Product updates:</strong> <a href="mailto:sidekick@toy-knowlogy.com" style="color:#99f6e4">sidekick@toy-knowlogy.com</a><br />
+        <strong>Partnership:</strong> <a href="mailto:rmazursky@gmail.com" style="color:#99f6e4">rmazursky@gmail.com</a> (M&amp;M Partners)</p>
+        <p style="font-size:0.85rem; opacity:0.75; margin-top:1.5rem">Proprietary. For discussion only.</p>
+      </div>
+    </section>
+  </div>
+  <script>
+    (function () {
+      var deck = document.getElementById("deck");
+      var slides = document.querySelectorAll(".slide");
+      var i = 0;
+      function go(delta) {
+        i = Math.max(0, Math.min(slides.length - 1, i + delta));
+        slides[i].scrollIntoView({ behavior: "smooth" });
+      }
+      deck.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") { e.preventDefault(); go(1); }
+        if (e.key === "ArrowUp" || e.key === "PageUp") { e.preventDefault(); go(-1); }
+        if (e.key === "Home") { e.preventDefault(); slides[0].scrollIntoView({ behavior: "smooth" }); }
+        if (e.key === "End") { e.preventDefault(); slides[slides.length - 1].scrollIntoView({ behavior: "smooth" }); }
+      });
+    })();
+  </script>
+</body>
+</html>
