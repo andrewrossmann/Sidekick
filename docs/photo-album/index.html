@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sidekick — photo gallery of the mobile support bar in use." />
+  <title>Sidekick — Photo album</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0c1118;
+      --muted: #475569;
+      --accent: #0d9488;
+      --accent2: #0f766e;
+      --paper: #f1f5f4;
+      --card: #fff;
+      --line: #e2ddd4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Outfit", system-ui, sans-serif;
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #e0f2f1 0%, var(--paper) 35%, #faf9f6 100%);
+      min-height: 100vh;
+    }
+    header {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 2.5rem) 1.25rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .wordmark { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #64748b; }
+    .wordmark span { color: var(--accent); }
+    h1 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; letter-spacing: -0.03em; margin: 0.35rem 0 0.25rem; }
+    .lede { color: var(--muted); font-size: 1rem; line-height: 1.5; max-width: 32rem; margin: 0; }
+    .back { font-size: 0.9rem; font-weight: 600; }
+    .back a { color: var(--accent2); text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    .gallery {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0.5rem 1.25rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+      gap: 1.25rem;
+    }
+    .shot {
+      margin: 0;
+      background: var(--card);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 20px rgba(20, 24, 33, 0.06);
+    }
+    .shot__link { display: block; line-height: 0; background: #0a0a0a; }
+    .shot__link img {
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+      object-fit: contain;
+      max-height: 22rem;
+    }
+    .shot figcaption {
+      padding: 0.65rem 0.9rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      padding: 0 1rem 2rem;
+    }
+    @media print {
+      body { background: #fff; }
+      .shot { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <p class="wordmark">Side<span>kick</span></p>
+      <h1>Photo album</h1>
+      <p class="lede">When a cane is not enough and a rollator is too much — moments from development and use. Click an image to open the full file.</p>
+    </div>
+    <p class="back"><a href="../">← All documents</a></p>
+  </header>
+  <div class="gallery">
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_001.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_001.jpg" loading="lazy" alt="Sidekick photo 1" />
+      </a>
+      <figcaption>Photo 01</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_002.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_002.jpg" loading="lazy" alt="Sidekick photo 2" />
+      </a>
+      <figcaption>Photo 02</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_003.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_003.jpg" loading="lazy" alt="Sidekick photo 3" />
+      </a>
+      <figcaption>Photo 03</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_004.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_004.jpg" loading="lazy" alt="Sidekick photo 4" />
+      </a>
+      <figcaption>Photo 04</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_005.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_005.jpg" loading="lazy" alt="Sidekick photo 5" />
+      </a>
+      <figcaption>Photo 05</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_006.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_006.jpg" loading="lazy" alt="Sidekick photo 6" />
+      </a>
+      <figcaption>Photo 06</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_007.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_007.jpg" loading="lazy" alt="Sidekick photo 7" />
+      </a>
+      <figcaption>Photo 07</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_008.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_008.jpg" loading="lazy" alt="Sidekick photo 8" />
+      </a>
+      <figcaption>Photo 08</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_009.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_009.jpg" loading="lazy" alt="Sidekick photo 9" />
+      </a>
+      <figcaption>Photo 09</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_010.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_010.jpg" loading="lazy" alt="Sidekick photo 10" />
+      </a>
+      <figcaption>Photo 10</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_011.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_011.jpg" loading="lazy" alt="Sidekick photo 11" />
+      </a>
+      <figcaption>Photo 11</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_012.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_012.jpg" loading="lazy" alt="Sidekick photo 12" />
+      </a>
+      <figcaption>Photo 12</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_013.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_013.jpg" loading="lazy" alt="Sidekick photo 13" />
+      </a>
+      <figcaption>Photo 13</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_014.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_014.jpg" loading="lazy" alt="Sidekick photo 14" />
+      </a>
+      <figcaption>Photo 14</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_015.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_015.jpg" loading="lazy" alt="Sidekick photo 15" />
+      </a>
+      <figcaption>Photo 15</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_016.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_016.jpg" loading="lazy" alt="Sidekick photo 16" />
+      </a>
+      <figcaption>Photo 16</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_017.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_017.jpg" loading="lazy" alt="Sidekick photo 17" />
+      </a>
+      <figcaption>Photo 17</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_018.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_018.jpg" loading="lazy" alt="Sidekick photo 18" />
+      </a>
+      <figcaption>Photo 18</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_019.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_019.jpg" loading="lazy" alt="Sidekick photo 19" />
+      </a>
+      <figcaption>Photo 19</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_020.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_020.jpg" loading="lazy" alt="Sidekick photo 20" />
+      </a>
+      <figcaption>Photo 20</figcaption>
+    </figure>
+    <figure class="shot">
+      <a class="shot__link" href="images/sidekick_photo_021.jpg" target="_blank" rel="noopener">
+        <img src="images/sidekick_photo_021.jpg" loading="lazy" alt="Sidekick photo 21" />
+      </a>
+      <figcaption>Photo 21</figcaption>
+    </figure>
+  </div>
+  <footer>Patents pending · For discussion</footer>
+</body>
+</html>

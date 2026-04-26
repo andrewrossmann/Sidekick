@@ -1,4 +1,5 @@
 .DS_Store
+.venv/
 
 # Large local-only media (omitted from Git to keep the repo and pushes fast; keep files on your machine)
 binattachment.MOV
