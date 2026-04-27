@@ -123,6 +123,94 @@
     }
     .site-nav a { color: var(--accent); font-weight: 600; text-decoration: none; }
     .site-nav a:hover { text-decoration: underline; }
+    @media (max-width: 768px) {
+      body { font-size: 10.5pt; }
+      .site-nav {
+        max-width: 100%;
+        margin-bottom: 0.75rem;
+        padding: 0 0.7rem;
+        font-size: 0.75rem;
+      }
+      .sheet {
+        max-width: 100%;
+        padding: 0.9rem 0.78rem 1.05rem;
+        box-shadow: none;
+      }
+      header.brand {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 1.15rem;
+        padding-bottom: 0.75rem;
+      }
+      .wordmark { font-size: 1.55rem; }
+      .doc-label {
+        font-size: 0.67rem;
+        letter-spacing: 0.09em;
+      }
+      h1 {
+        font-size: 1.3rem;
+        margin-bottom: 0.55rem;
+      }
+      h2 {
+        font-size: 1rem;
+        margin-top: 1.4rem;
+        margin-bottom: 0.62rem;
+      }
+      h3 {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+      }
+      p,
+      ul { font-size: 0.93rem; }
+      ul {
+        padding-left: 1rem;
+        margin-bottom: 0.85rem;
+      }
+      .tagline {
+        font-size: 0.95rem;
+        line-height: 1.45;
+        padding: 0.5rem 0 0.5rem 0.78rem;
+        margin-bottom: 1rem;
+      }
+      .pill-row {
+        gap: 0.3rem;
+        margin-bottom: 0.95rem;
+      }
+      .pill {
+        font-size: 0.64rem;
+        padding: 0.26rem 0.48rem;
+      }
+      table.stats {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        font-size: 0.86rem;
+      }
+      table.stats th,
+      table.stats td { padding: 0.45rem 0.55rem; }
+      .footnote {
+        font-size: 0.74rem;
+        margin-top: 1.35rem;
+        padding-top: 0.8rem;
+      }
+    }
+    @media (max-width: 420px) {
+      .site-nav { padding: 0 0.55rem; }
+      .sheet { padding: 0.75rem 0.58rem 0.95rem; }
+      .wordmark { font-size: 1.42rem; }
+      h1 { font-size: 1.16rem; }
+      h2 { font-size: 0.95rem; }
+      .tagline {
+        font-size: 0.9rem;
+        padding-left: 0.65rem;
+      }
+      p,
+      ul { font-size: 0.9rem; }
+      .pill { font-size: 0.6rem; }
+      .doc-label { font-size: 0.62rem; }
+    }
     @media print {
       body { background: #fff; }
       .sheet { box-shadow: none; max-width: 100%; }
